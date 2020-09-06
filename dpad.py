@@ -71,6 +71,33 @@ main_menu.add_cascade(label="Color Theme", menu=color_theme)
  
 ######################   toolbar  ############### ############################
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+tool_bar= ttk.Label(main_application)
+tool_bar.pack(side=tk.TOP, fill=tk.X)
+
+# Font Box
+font_tuple= tk.font.families()
+font_family= tk.StringVar()
+font_box= ttk.Combobox(tool_bar, width=30, textvariable=font_family, state="readonly")
+font_box["values"]= font_tuple
+font_box.current(font_tuple.index("Arial"))
+font_box.grid(row=0,column=0,padx=5)
+
+
+# Size Box
+size_var=tk.IntVar()
+font_size= ttk.Combobox(tool_bar, width=14, textvariable=size_var, state="readonly")
+font_size["values"]= tuple(range(8,80,2))
+font_size.current(font_size.index(12))
+font_size.grid(row=0, column=1, padx=5)
+
+# Bold Button
+bold_icon= tk.PhotoImage(file="icons2/bold.png")
+bold_btn= ttk.Button(tool_bar, image=bold_icon)
+bold_btn.grid(row=0, column=2, padx=5)
+
+
+italic_icon= tk.PhotoImage(file="icons2/italic.png")
+underline_icon= tk.PhotoImage(file="icons2/underline.png")
 
 
 ######################   text editor   ############### ############################
@@ -112,5 +139,3 @@ for i in color_dict:
 
 main_application.config(menu=main_menu)
 main_application.mainloop()
-
-# 40 min
