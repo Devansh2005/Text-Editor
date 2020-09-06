@@ -70,7 +70,7 @@ main_menu.add_cascade(label="Color Theme", menu=color_theme)
 
  
 ######################   toolbar  ############### ############################
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+
 tool_bar= ttk.Label(main_application)
 tool_bar.pack(side=tk.TOP, fill=tk.X)
 
@@ -87,24 +87,90 @@ font_box.grid(row=0,column=0,padx=5)
 size_var=tk.IntVar()
 font_size= ttk.Combobox(tool_bar, width=14, textvariable=size_var, state="readonly")
 font_size["values"]= tuple(range(8,80,2))
-font_size.current(font_size.index(12))
+font_size.current(3)  #12 is at index 4
 font_size.grid(row=0, column=1, padx=5)
 
-# Bold Button
+# Bold Button..
 bold_icon= tk.PhotoImage(file="icons2/bold.png")
 bold_btn= ttk.Button(tool_bar, image=bold_icon)
 bold_btn.grid(row=0, column=2, padx=5)
 
-
+# Italic Button
 italic_icon= tk.PhotoImage(file="icons2/italic.png")
-underline_icon= tk.PhotoImage(file="icons2/underline.png")
+italic_btn = ttk.Button(tool_bar, image=italic_icon)
+italic_btn.grid(row=0, column=3, padx=5)
 
+#underline button
+underline_icon= tk.PhotoImage(file="icons2/underline.png")
+underline_btn= ttk.Button(tool_bar, image=underline_icon)
+underline_btn.grid(row=0, column=4, padx=5)
+
+# Font color button
+font_color_icon= tk.PhotoImage(file="icons2/font_color.png")
+font_color_btn= ttk.Button(tool_bar, image=font_color_icon)
+font_color_btn.grid(row=0, column=5, padx=5)
+
+# align left button
+
+align_left_icon= tk.PhotoImage(file="icons2/align_left.png")
+align_left_btn= ttk.Button(tool_bar, image=align_left_icon)
+align_left_btn.grid(row=0, column=6, padx=5)
+
+# align center button
+align_center_icon= tk.PhotoImage(file="icons2/align_center.png")
+align_center_btn= ttk.Button(tool_bar, image=align_center_icon)
+align_center_btn.grid(row=0, column=7, padx=5)
+
+#align right button
+align_right_icon= tk.PhotoImage(file="icons2/align_right.png")
+align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
+align_right_btn.grid(row=0, column=8, padx=5)
+
+# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
 ######################   text editor   ############### ############################
+text_editor=tk.Text(main_application)
+text_editor.config(wrap="word", relief=tk.FLAT)
+
+scroll_bar= tk.Scrollbar(main_application)  # to add scroll bar
+text_editor.focus_set() # cursor position
+scroll_bar.pack(side=tk.RIGHT, fill=tk.Y)  #gridding scrollbar
+text_editor.pack(fill= tk.BOTH, expand=True)
+scroll_bar.config(command=text_editor.yview)
+text_editor.config(yscrollcommand=scroll_bar.set)
+
+#font family and font size functionality
+current_font_family= "Arial"
+current_font_size = 12
+
+def change_font(event=None):
+    global current_font_family
+    current_font_family= font_family.get()
+    text_editor.configure(font=(current_font_family, current_font_size))
+
+
+def change_font_size(event=None):
+    global current_font_size
+    current_font_size= size_var.get()
+    text_editor.configure(font=(current_font_family, current_font_size))
+font_box.bind("<<ComboboxSelected>>", change_font)
+
+font_size.bind("<<ComboboxSelected>>", change_font_size)
+
+
+text_editor.configure(font=("Arial", 12))
+
+
+
+
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
 
-######################   status bar   ############### ############################
+######################   status bar   ############### ############################ BUTTON 
+
+status_bar=ttk.Label(main_application, text= "Status Bar")
+status_bar.pack(side=tk.BOTTOM)
+
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
 ## file commands
