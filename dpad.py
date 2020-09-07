@@ -157,6 +157,71 @@ font_box.bind("<<ComboboxSelected>>", change_font)
 
 font_size.bind("<<ComboboxSelected>>", change_font_size)
 
+### Buttons functionality
+ # bold button functionality
+
+def change_bold():
+    text_property=tk.font.Font(font=text_editor["font"])  #dictionary
+    if text_property.actual()["weight"] == "normal":
+        text_editor.config(font=(current_font_family, current_font_size, "bold"))
+    if text_property.actual()["weight"] == "bold":
+        text_editor.config(font=(current_font_family, current_font_size, "normal"))
+
+bold_btn.configure(command= change_bold)
+
+# Italic Button Functionality
+def change_italic():
+    text_property=tk.font.Font(font=text_editor["font"])  #dictionary
+    if text_property.actual()["slant"] == "roman":
+        text_editor.config(font=(current_font_family, current_font_size, "italic"))
+    if text_property.actual()["weight"] == "italic":
+        text_editor.config(font=(current_font_family, current_font_size, "normal"))
+
+italic_btn.configure(command= change_italic)
+
+# Underline button Functionality
+def change_underline():
+    text_property=tk.font.Font(font=text_editor["font"])  #dictionary
+    if text_property.actual()["underline"] == 0:
+        text_editor.config(font=(current_font_family, current_font_size, "underline"))
+    if text_property.actual()["underline"] == 1:
+        text_editor.config(font=(current_font_family, current_font_size, "normal"))
+
+underline_btn.configure(command= change_underline)
+
+# Font color Button Functionality
+
+def change_font_color():
+    color_var=tk.colorchooser.askcolor()
+    text_editor.configure(fg=color_var[1])
+
+font_color_btn.configure(command=change_font_color)
+
+### Align Functionality
+
+def align_left():
+    text_content= text_editor.get(1.0, "end")
+    text_editor.tag_config("left", justify=tk.LEFT)
+    text_editor.delete(1.0, tk.END)
+    text_editor.insert(tk.INSERT, text_content, "left")
+
+align_left_btn.configure(command=align_left)
+
+def align_center():
+    text_content= text_editor.get(1.0, "end")
+    text_editor.tag_config("center", justify=tk.CENTER)
+    text_editor.delete(1.0, tk.END)
+    text_editor.insert(tk.INSERT, text_content, "center")
+align_center_btn.configure(command=align_center)
+
+def align_right():
+    text_content= text_editor.get(1.0, "end")
+    text_editor.tag_config("right", justify=tk.RIGHT)
+    text_editor.delete(1.0, tk.END)
+    text_editor.insert(tk.INSERT, text_content, "right")
+align_right_btn.configure(command=align_right)
+
+
 
 text_editor.configure(font=("Arial", 12))
 
@@ -170,6 +235,14 @@ text_editor.configure(font=("Arial", 12))
 
 status_bar=ttk.Label(main_application, text= "Status Bar")
 status_bar.pack(side=tk.BOTTOM)
+
+def changed(event=None):
+    if text_editor.edit_modified():
+        words=len(text_editor.get(1.0, "end-1c").split())
+        characters = len(text_editor.get(1.0, "end-1c"))
+        status_bar.config(text=f'Characters:{characters} Words: {words}')
+    text_editor.edit_modified(False) ## Increase the count of the char and words
+text_editor.bind("<<Modified>>", changed)
 
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
@@ -205,3 +278,4 @@ for i in color_dict:
 
 main_application.config(menu=main_menu)
 main_application.mainloop()
+#150
