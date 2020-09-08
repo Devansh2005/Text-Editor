@@ -236,8 +236,12 @@ text_editor.configure(font=("Arial", 12))
 status_bar=ttk.Label(main_application, text= "Status Bar")
 status_bar.pack(side=tk.BOTTOM)
 
+text_changed = False
+
 def changed(event=None):
+    global text_changed
     if text_editor.edit_modified():
+        text_changed = True
         words=len(text_editor.get(1.0, "end-1c").split())
         characters = len(text_editor.get(1.0, "end-1c"))
         status_bar.config(text=f'Characters:{characters} Words: {words}')
@@ -246,10 +250,35 @@ text_editor.bind("<<Modified>>", changed)
 
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
+# VAriable 
+url = ""
+#new functionality
+def new_file(event= None):
+    global url
+    url=""
+    text_editor.delete(1.0, tk.END)
+
+
+
 ## file commands
 
-file.add_command(label="New", image=new_icon, compound=tk.LEFT, accelerator="Ctrl+N")
-file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O")
+file.add_command(label="New", image=new_icon, compound=tk.LEFT, accelerator="Ctrl+N", command = new_file)
+#open functionality
+
+def open_file(event=None):
+    global url
+    url = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select File", filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
+    try:
+        with open(url, "r") as fr:
+            text_editor.delete(1.0, tk.END)
+            text_editor.insert(1.0, fr.read())
+    except FileNotFoundError:
+        return 
+    except:
+        return
+    main_application.title(os.path.basename(url))
+    
+file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O", command=open_file)
 file.add_command(label="Save", image=save_icon, compound=tk.LEFT, accelerator="Ctrl+S")
 file.add_command(label="Save_As", image=save_as_icon, compound=tk.LEFT, accelerator="Ctrl+Alt+S")
 file.add_command(label="Exit", image=exit_icon, compound=tk.LEFT, accelerator="Ctrl+Q")
@@ -278,4 +307,3 @@ for i in color_dict:
 
 main_application.config(menu=main_menu)
 main_application.mainloop()
-#150
