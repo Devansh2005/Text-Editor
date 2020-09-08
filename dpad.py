@@ -279,9 +279,61 @@ def open_file(event=None):
     main_application.title(os.path.basename(url))
     
 file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O", command=open_file)
-file.add_command(label="Save", image=save_icon, compound=tk.LEFT, accelerator="Ctrl+S")
-file.add_command(label="Save_As", image=save_as_icon, compound=tk.LEFT, accelerator="Ctrl+Alt+S")
-file.add_command(label="Exit", image=exit_icon, compound=tk.LEFT, accelerator="Ctrl+Q")
+
+# Save Functionality
+def save_file(event= None):
+    global url
+    try:
+        if url:
+            content = str(text_editor.get(1.0, tk.END))
+            with open(url, "w", encoding="utf-8") as fw:
+                fw.write(content)
+        else:
+            url = filedialog.asksaveasfile(mode="w",defaultextension =".txt" , filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
+            content2= text_editor.get(1.0, tk.END)
+            url.write(content2)
+            url.close()
+    except:
+        return  
+file.add_command(label="Save", image=save_icon, compound=tk.LEFT, accelerator="Ctrl+S", command = save_file)
+
+# SAve AS Functionality
+def save_as(event= None):
+    global url
+    try:
+        content = text_editor.get(1.0, tk.END)
+        url = filedialog.asksaveasfile(mode="w",defaultextension =".txt" , filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
+        url.write(content)
+        url.close()
+    except:
+        return
+file.add_command(label="Save_As", image=save_as_icon, compound=tk.LEFT, accelerator="Ctrl+Alt+S", command= save_as)
+# Exit functionality
+def exit_func(event= None):
+    global url, text_changed #line239
+    try:
+        if text_changed:
+            mbox= messagebox.askyesnocancel("Hey Wait ! Don't You want to save the File !") # Create a message box
+            if mbox is True: # Save krne h file :)  is true to be used as cancel is also falue value
+                if url:
+                    content = text_editor.get(1.0, tk.End)
+                    with open(url, "w", encoding= "utf-8") as fw:
+                        fw.write(content)
+                        main_application.destroy()
+                else:
+                    content2= text_editor.get(1.0, tk.END)
+                    url = filedialog.asksaveasfile(mode="w",defaultextension =".txt" , filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
+                    url.write(content2)
+                    url.close()
+                    main_application.destroy()
+            elif mbox is False:
+                main_application.destroy()
+        else:
+            main_application.destroy()
+    except:
+        return 
+
+file.add_command(label="Exit", image=exit_icon, compound=tk.LEFT, accelerator="Ctrl+Q", command=exit_func)
 
 ## edit command
 
