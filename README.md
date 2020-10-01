@@ -1,5 +1,7 @@
 Author: Devansh Tayal
+
 Github: https://github.com/Devansh2005
+
 Title: Text-Editor
 
 =======================================================================
