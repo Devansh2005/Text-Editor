@@ -1,11 +1,11 @@
-import tkinter as tk    
+import tkinter as tk
 from tkinter import ttk
 from  tkinter import font, colorchooser, filedialog, messagebox
 import os
 
 main_application=tk.Tk()
 main_application.geometry('1200x800')
-main_application.title("Devansh Text Editor")
+main_application.title("Devansh's Text Editor")
 
 
 ######################   main menu   ############### ############################
@@ -68,7 +68,7 @@ main_menu.add_cascade(label="View", menu=view)
 main_menu.add_cascade(label="Color Theme", menu=color_theme)
 
 
- 
+
 ######################   toolbar  ############### ############################
 
 tool_bar= ttk.Label(main_application)
@@ -231,7 +231,7 @@ text_editor.configure(font=("Arial", 12))
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
 
-######################   status bar   ############### ############################ BUTTON 
+######################   status bar   ############### ############################ BUTTON
 
 status_bar=ttk.Label(main_application, text= "Status Bar")
 status_bar.pack(side=tk.BOTTOM)
@@ -250,7 +250,7 @@ text_editor.bind("<<Modified>>", changed)
 
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
-# VAriable 
+# VAriable
 url = ""
 #new functionality
 def new_file(event= None):
@@ -273,11 +273,11 @@ def open_file(event=None):
             text_editor.delete(1.0, tk.END)
             text_editor.insert(1.0, fr.read())
     except FileNotFoundError:
-        return 
+        return
     except:
         return
     main_application.title(os.path.basename(url))
-    
+
 file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O", command=open_file)
 
 # Save Functionality
@@ -294,7 +294,7 @@ def save_file(event= None):
             url.write(content2)
             url.close()
     except:
-        return  
+        return
 file.add_command(label="Save", image=save_icon, compound=tk.LEFT, accelerator="Ctrl+S", command = save_file)
 
 # SAve AS Functionality
@@ -331,7 +331,7 @@ def exit_func(event= None):
         else:
             main_application.destroy()
     except:
-        return 
+        return
 
 file.add_command(label="Exit", image=exit_icon, compound=tk.LEFT, accelerator="Ctrl+Q", command=exit_func)
 ## find functionaly in edit command (last option)
@@ -353,7 +353,7 @@ def find_func(event =None):
                 start_pos = end_pos
                 text_editor.tag_config("match", foreground ="yellow", background= "green")
     def replace():
-        word = find_input.get() 
+        word = find_input.get()
         replace_text = replace_input.get()
         content= text_editor.get(1.0, tk.END)
 
