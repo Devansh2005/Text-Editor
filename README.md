@@ -3,7 +3,7 @@
 It is a tkinter ,Python project open for contribution and beginner friendly.
 
 
-## Features !
+## Amazing Features !
 
 - Various themes available.
 - All required font styles and colours.
