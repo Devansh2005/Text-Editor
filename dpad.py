@@ -8,7 +8,7 @@ main_application.geometry('1200x800')
 main_application.title("Devansh's Text Editor")
 
 
-######################   main menu   ############### ############################
+##################### ################# main menu   ############### ############################
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 main_menu= tk.Menu()
 #file icons
@@ -69,7 +69,7 @@ main_menu.add_cascade(label="Color Theme", menu=color_theme)
 
 
 
-######################   toolbar  ############### ############################
+###################### ###################   toolbar  ############### ############################
 
 tool_bar= ttk.Label(main_application)
 tool_bar.pack(side=tk.TOP, fill=tk.X)
@@ -128,7 +128,7 @@ align_right_btn.grid(row=0, column=8, padx=5)
 
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
-######################   text editor   ############### ############################
+###################### ###############   text editor   ############### ############################
 text_editor=tk.Text(main_application)
 text_editor.config(wrap="word", relief=tk.FLAT)
 
@@ -231,7 +231,7 @@ text_editor.configure(font=("Arial", 12))
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
 
-######################   status bar   ############### ############################ BUTTON
+######################  ###############  status bar   ############### ############################ BUTTON
 
 status_bar=ttk.Label(main_application, text= "Status Bar")
 status_bar.pack(side=tk.BOTTOM)
@@ -248,7 +248,7 @@ def changed(event=None):
     text_editor.edit_modified(False) ## Increase the count of the char and words
 text_editor.bind("<<Modified>>", changed)
 
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+# ---------  ----------------------  &&&&&&&&&&& End main menu ------------------------------------------=--
 
 # VAriable
 url = ""
@@ -466,8 +466,8 @@ for i in color_dict:
     count+=1
 
 #
-#######################   main menu functionality   ############### ############################
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+##############################  main menu functionality  #####################################
+# ------------------------- ----------------&&&&&&&&&&& End main menu -------------------------------------------
 
 main_application.config(menu=main_menu)
 
