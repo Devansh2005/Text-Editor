@@ -16,7 +16,7 @@ It is a tkinter ,Python project open for contribution and beginner friendly.
 
 - Various themes available.
 - All required font styles and colours.
-- Text to speech (Beta) 
+- Text to speech (Beta).
     
 =======================================================================
 
