@@ -18,7 +18,7 @@ tts.wm_title("Text to Speech")
 tts.geometry("225x105")
 tts.config(background="#708090")
 
-f = Frame(tts, height=280, width=500, bg="#bebebe")
+f = Frame(tts, height=300, width=530, bg="#bebebe")
 f.grid(row=0, column=0, padx=10, pady=5)
 lbl = Label(f, text="Enter your Text here : ")
 lbl.grid(row=1, column=0, padx=10, pady=2)
