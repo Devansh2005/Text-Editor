@@ -8,7 +8,7 @@ Title: Text-Editor
 
 # DESCRIPTION
 
-It is a tkinter ,Python project open for contribution and beginner friendly.
+It is a tkinter ,Python project (A simple Text Editor) open for contribution and beginner friendly.
 
 =======================================================================
 
