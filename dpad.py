@@ -465,7 +465,7 @@ for i in color_dict:
     color_theme.add_radiobutton(label= i, image=color_icons[count], variable=theme_choice, compound=tk.LEFT, command= change_theme)
     count+=1
 
-#
+
 #######################   main menu functionality   ############### ############################
 # ---------&&&&&&&&&&& End main menu ------------------------------------------=--
 
