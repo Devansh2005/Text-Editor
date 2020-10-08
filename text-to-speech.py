@@ -1,3 +1,9 @@
+"""
+Author 
+Name-  Garima Choudhary, 
+Email- garima0224.be20@chitkara.edu.in]
+
+"""
 from tkinter import *
 from gtts import gTTS 
  
