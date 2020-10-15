@@ -422,6 +422,7 @@ show_statusbar.set(True)
 show_toolbar =tk.BooleanVar()
 show_toolbar.set(True)
 
+# To hide toolbar
 def hide_toolbar():
     global show_toolbar
     if show_toolbar:
@@ -435,7 +436,7 @@ def hide_toolbar():
         status_bar.pack(side=tk.BOTTOM)
         show_toolbar = True
 
-
+# To hide statusbar
 def hide_statusbar():
     global show_statusbar
     if show_statusbar:
