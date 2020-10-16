@@ -127,7 +127,7 @@ align_right_icon= tk.PhotoImage(file="icons2/align_right.png")
 align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+# ---------&&&&&&&&&&& End main menu ---------------------------------------------
 
 ######################   text editor   ############### ############################
 text_editor=tk.Text(main_application)
