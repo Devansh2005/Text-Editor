@@ -280,7 +280,7 @@ def open_file(event=None):
     except:
         return
     main_application.title(os.path.basename(url))
-# 
+
 file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O", command=open_file)
 
 # Save Functionality
