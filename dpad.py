@@ -267,7 +267,7 @@ def new_file(event= None):
 
 file.add_command(label="New", image=new_icon, compound=tk.LEFT, accelerator="Ctrl+N", command = new_file)
 #open functionality
-
+#opening file
 def open_file(event=None):
     global url
     url = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select File", filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
@@ -280,7 +280,7 @@ def open_file(event=None):
     except:
         return
     main_application.title(os.path.basename(url))
-
+# 
 file.add_command(label="Open", image=open_icon, compound=tk.LEFT, accelerator="Ctrl+O", command=open_file)
 
 # Save Functionality
