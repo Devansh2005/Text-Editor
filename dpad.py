@@ -10,7 +10,7 @@ main_application.title("Devansh's Text Editor")
 
 
 ######################   main menu   ############### ############################
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+# ---------&&&&&&&&&&& End main menu ---------------------------------------------
 main_menu= tk.Menu()
 #file icons
 new_icon= tk.PhotoImage(file="icons2/new.png")
@@ -127,7 +127,7 @@ align_right_icon= tk.PhotoImage(file="icons2/align_right.png")
 align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
-# ---------&&&&&&&&&&& End main menu ------------------------------------------=--
+# ---------&&&&&&&&&&& End main menu ---------------------------------------------
 
 ######################   text editor   ############### ############################
 text_editor=tk.Text(main_application)
@@ -267,7 +267,7 @@ def new_file(event= None):
 
 file.add_command(label="New", image=new_icon, compound=tk.LEFT, accelerator="Ctrl+N", command = new_file)
 #open functionality
-
+#opening file
 def open_file(event=None):
     global url
     url = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select File", filetypes=(("Text File", "*.txt"),("All Files", "*.*")))
