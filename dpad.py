@@ -70,7 +70,7 @@ main_menu.add_cascade(label="Color Theme", menu=color_theme)
 
 
 
-######################   toolbar  ############### ############################
+######################   toolbar  ############### ############################.
 
 tool_bar= ttk.Label(main_application)
 tool_bar.pack(side=tk.TOP, fill=tk.X)
