@@ -10,7 +10,7 @@ main_application.title("Devansh's Text Editor")
 
 
 ######################   main menu   ############### ############################
-# ---------&&&&&&&&&&& End main menu ---------------------------------------------
+# ---------&&&&&&&&&&& End main menu -----------------------------------------------
 main_menu= tk.Menu()
 #file icons
 new_icon= tk.PhotoImage(file="icons2/new.png")
@@ -70,7 +70,7 @@ main_menu.add_cascade(label="Color Theme", menu=color_theme)
 
 
 
-######################   toolbar  ############### ############################
+######################   toolbar  ############### ############################.
 
 tool_bar= ttk.Label(main_application)
 tool_bar.pack(side=tk.TOP, fill=tk.X)
