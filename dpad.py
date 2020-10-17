@@ -10,7 +10,7 @@ main_application.title("Devansh's Text Editor")
 
 
 ######################   main menu   ############### ############################
-# ---------&&&&&&&&&&& End main menu ---------------------------------------------
+# ---------&&&&&&&&&&& End main menu -----------------------------------------------
 main_menu= tk.Menu()
 #file icons
 new_icon= tk.PhotoImage(file="icons2/new.png")
