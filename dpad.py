@@ -235,12 +235,21 @@ def align_right():
 align_right_btn.configure(command=align_right)
 
 ### Read Text
-def read_text(**kwargs):
+def read_text():
     text = text_editor.get(1.0, 'end') # get text content
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
 speak_btn.configure(command=read_text)
+
+### text formatter
+def text_formatter(phrase):
+    interrogatives = ('how', 'why', 'what', 'when', 'who', 'where', 'is', 'do you')
+    capitalized = phrase.capitalize()
+    if phrase.startswith(interrogatives):
+        return (f'{capitalized}?')
+    else:
+        return (f'{capitalized}.')
 
 ### Speech to text
 def take_speech():
@@ -257,10 +266,8 @@ def take_speech():
         r.pause_threshold = 1 # delay one second from program start before listening
         audio= r.listen(source)
     try:
-        print("Voice Recognition in process...")
         query = r.recognize_google(audio, language='en-UK') #listen to audio
-        print(query)
-        
+        query = text_formatter(query)
     except Exception:
         error = random.choice(errors)
         read_text(text = error)
