@@ -4,6 +4,8 @@ from tkinter import ttk
 from  tkinter import font, colorchooser, filedialog, messagebox
 import os
 import pyttsx3
+import speech_recognition as sr
+import random
 
 main_application=tk.Tk()
 main_application.geometry('1200x800')
@@ -128,10 +130,13 @@ align_right_icon= tk.PhotoImage(file="icons2/align_right.png")
 align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
-#speak text button
+#read text button
 speak_btn = ttk.Button(tool_bar, text= 'Read Text')
 speak_btn.grid(row=0, column=9, padx=5)
 
+#talk text button
+talk_btn = ttk.Button(tool_bar, text= 'Speech to Text')
+talk_btn.grid(row=0, column=10, padx=5)
 # ----------&&&&&&&&&&& End main menu ---------------------------------------------
 
 ######################   text editor   ############### ############################
@@ -229,14 +234,52 @@ def align_right():
     text_editor.insert(tk.INSERT, text_content, "right")
 align_right_btn.configure(command=align_right)
 
-### Speak Text
-def read_text():
-    text = text_editor.get(1.0, 'end') # get text content
+### Read Text
+def read_text(**kwargs):
+    if 'text' in kwargs:
+        text = kwargs['text']
+    else:
+        text = text_editor.get(1.0, 'end') # get text content
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+    engine.stop()
 speak_btn.configure(command=read_text)
 
+### text formatter
+def text_formatter(phrase):
+    interrogatives = ('how', 'why', 'what', 'when', 'who', 'where', 'is', 'do you', "whom", "whose")
+    capitalized = phrase.capitalize()
+    if phrase.startswith(interrogatives):
+        return (f'{capitalized}?')
+    else:
+        return (f'{capitalized}.')
+
+### Speech to text
+def take_speech():
+    errors=[
+        "I don't know what you mean!",
+        "Excuse me?",
+        "Can you repeat it please?",
+        "Say that again please!",
+        "Sorry I didn't get that"
+        ]
+    r = sr.Recognizer() # initialize the listener
+    m = sr.Microphone()
+    with m as source: # set listening device to microphone
+        read_text(text = 'Please say the message you would like to the editor!')
+        r.pause_threshold = 2 # delay two second from program start before listening
+        audio= r.listen(source)
+    try:
+        query = r.recognize_google(audio, language='en-UK') #listen to audio
+        query = text_formatter(query)
+    except Exception:
+        error = random.choice(errors)
+        read_text(text = error)
+        query = take_speech()
+    text_editor.insert(tk.INSERT, query, tk.END)
+    return query
+talk_btn.configure(command=take_speech)
 
 text_editor.configure(font=("Arial", 12))
 
