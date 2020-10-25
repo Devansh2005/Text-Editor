@@ -134,7 +134,7 @@ align_right_btn.grid(row=0, column=8, padx=5)
 speak_btn = ttk.Button(tool_bar, text= 'Read Text')
 speak_btn.grid(row=0, column=9, padx=5)
 
-#take text button
+#talk text button
 talk_btn = ttk.Button(tool_bar, text= 'Speech to Text')
 talk_btn.grid(row=0, column=10, padx=5)
 # ----------&&&&&&&&&&& End main menu ---------------------------------------------
