@@ -129,7 +129,7 @@ align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
 #speak text button
-speak_btn = ttk.Button(tool_bar, text= 'Speak')
+speak_btn = ttk.Button(tool_bar, text= 'Read Text')
 speak_btn.grid(row=0, column=9, padx=5)
 
 # ----------&&&&&&&&&&& End main menu ---------------------------------------------
@@ -230,12 +230,12 @@ def align_right():
 align_right_btn.configure(command=align_right)
 
 ### Speak Text
-def speak():
-    text = ''
+def read_text():
+    text = text_editor.get(1.0, 'end') # get text content
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
-speak_btn.configure(command=speak)
+speak_btn.configure(command=read_text)
 
 
 text_editor.configure(font=("Arial", 12))
