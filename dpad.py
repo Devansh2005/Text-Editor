@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from  tkinter import font, colorchooser, filedialog, messagebox
 import os
+import pyttsx3
 
 main_application=tk.Tk()
 main_application.geometry('1200x800')
@@ -127,6 +128,10 @@ align_right_icon= tk.PhotoImage(file="icons2/align_right.png")
 align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
+#speak text button
+speak_btn = ttk.Button(tool_bar, text= 'Read Text')
+speak_btn.grid(row=0, column=9, padx=5)
+
 # ----------&&&&&&&&&&& End main menu ---------------------------------------------
 
 ######################   text editor   ############### ############################
@@ -224,6 +229,13 @@ def align_right():
     text_editor.insert(tk.INSERT, text_content, "right")
 align_right_btn.configure(command=align_right)
 
+### Speak Text
+def read_text():
+    text = text_editor.get(1.0, 'end') # get text content
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
+speak_btn.configure(command=read_text)
 
 
 text_editor.configure(font=("Arial", 12))
