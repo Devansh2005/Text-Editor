@@ -319,7 +319,7 @@ def exit_func(event= None):
             mbox= messagebox.askyesnocancel("Hey Wait ! Don't You want to save the File !") # Create a message box
             if mbox is True: # Save krne h file :)  is true to be used as cancel is also falue value
                 if url:
-                    content = text_editor.get(1.0, tk.End)
+                    content = text_editor.get(1.0, tk.END)
                     with open(url, "w", encoding= "utf-8") as fw:
                         fw.write(content)
                         main_application.destroy()
