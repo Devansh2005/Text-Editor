@@ -235,8 +235,11 @@ def align_right():
 align_right_btn.configure(command=align_right)
 
 ### Read Text
-def read_text():
-    text = text_editor.get(1.0, 'end') # get text content
+def read_text(**kwargs):
+    if 'text' in kwargs:
+        text = kwargs['text']
+    else:
+        text = text_editor.get(1.0, 'end') # get text content
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
@@ -266,6 +269,7 @@ def take_speech():
         r.pause_threshold = 1 # delay one second from program start before listening
         audio= r.listen(source)
     try:
+        read_text(text = 'Please say the message you would like to the editor!')
         query = r.recognize_google(audio, language='en-UK') #listen to audio
         query = text_formatter(query)
     except Exception:
