@@ -248,7 +248,7 @@ speak_btn.configure(command=read_text)
 
 ### text formatter
 def text_formatter(phrase):
-    interrogatives = ('how', 'why', 'what', 'when', 'who', 'where', 'is', 'do you')
+    interrogatives = ('how', 'why', 'what', 'when', 'who', 'where', 'is', 'do you', "whom", "whose")
     capitalized = phrase.capitalize()
     if phrase.startswith(interrogatives):
         return (f'{capitalized}?')
@@ -262,13 +262,13 @@ def take_speech():
         "Excuse me?",
         "Can you repeat it please?",
         "Say that again please!",
-        "I didn't get that"
+        "Sorry I didn't get that"
         ]
     r = sr.Recognizer() # initialize the listener
     m = sr.Microphone()
     with m as source: # set listening device to microphone
         read_text(text = 'Please say the message you would like to the editor!')
-        r.pause_threshold = 1 # delay one second from program start before listening
+        r.pause_threshold = 2 # delay two second from program start before listening
         audio= r.listen(source)
     try:
         query = r.recognize_google(audio, language='en-UK') #listen to audio
