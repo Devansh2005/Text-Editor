@@ -243,6 +243,7 @@ def read_text(**kwargs):
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+    engine.stop()
 speak_btn.configure(command=read_text)
 
 ### text formatter
@@ -266,10 +267,10 @@ def take_speech():
     r = sr.Recognizer() # initialize the listener
     m = sr.Microphone()
     with m as source: # set listening device to microphone
+        read_text(text = 'Please say the message you would like to the editor!')
         r.pause_threshold = 1 # delay one second from program start before listening
         audio= r.listen(source)
     try:
-        read_text(text = 'Please say the message you would like to the editor!')
         query = r.recognize_google(audio, language='en-UK') #listen to audio
         query = text_formatter(query)
     except Exception:
