@@ -17,7 +17,7 @@ you can start your open-source from this Text-Editor.
 
 - Various themes available.
 - All required font styles and colours.
-- Text to speech (Beta).
+- Text to speech
     
 =======================================================================
 
