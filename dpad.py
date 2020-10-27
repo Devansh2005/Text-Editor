@@ -185,7 +185,7 @@ def change_italic():
     text_property=tk.font.Font(font=text_editor["font"])  #dictionary
     if text_property.actual()["slant"] == "roman":
         text_editor.config(font=(current_font_family, current_font_size, "italic"))
-    if text_property.actual()["weight"] == "italic":
+    if text_property.actual()["slant"] == "italic":
         text_editor.config(font=(current_font_family, current_font_size, "normal"))
 
 italic_btn.configure(command= change_italic)
