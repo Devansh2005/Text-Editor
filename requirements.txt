@@ -1,0 +1,6 @@
+tkinter==8.6
+gtts ==2.2.1
+pyttsx3==2.90
+SpeechRecognition==3.8.1
+PyAudio==0.2.11
+"platform_version == 0x000001D2206A19D8"
