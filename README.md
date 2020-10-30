@@ -8,14 +8,14 @@ Title: Text-Editor
 
 # DESCRIPTION
 
-It is a tkinter ,Python project (A simple Text Editor) open for contribution and beginner friendly.
-you can start your open-source from this Text-Editor.
+It is a tkinter, Python project (A simple Text Editor) open for contribution and beginner friendly.
+You can start your open-source from this Text-Editor.
 
 =======================================================================
 
 # Features !
 
-- Various themes available.
+- Various themes are available.
 - All required font styles and colours.
 
 - Text to speech
@@ -25,4 +25,4 @@ you can start your open-source from this Text-Editor.
 =======================================================================
 
 # Contributing
-Pull requests are welcome. If someone want to contribute to this project can fork and add the Functionalities. like adding a button for text to speech using pyttsx3.
+Pull requests are welcome. If someone wants to contribute to this project can fork and add the Functionalities. Like adding a button for text to speech using pyttsx3.
