@@ -37,7 +37,7 @@ You can start your open-source from this Text-Editor.
   </td>
   </tr>
 </table>
-    <hr>
+
 
 =======================================================================
 
