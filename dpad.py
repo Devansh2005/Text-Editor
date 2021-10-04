@@ -131,12 +131,15 @@ align_right_btn= ttk.Button(tool_bar, image=align_right_icon)
 align_right_btn.grid(row=0, column=8, padx=5)
 
 #read text button
-speak_btn = ttk.Button(tool_bar, text= 'Read Text')
+speak_icon = tk.PhotoImage(file="icons2/read.png")
+speak_btn = ttk.Button(tool_bar, image=speak_icon, text="Read Text", compound="left")
 speak_btn.grid(row=0, column=9, padx=5)
 
 #talk text button
-talk_btn = ttk.Button(tool_bar, text= 'Speech to Text')
+talk_icon = tk.PhotoImage(file="icons2/speech.png")
+talk_btn = ttk.Button(tool_bar, image=talk_icon, text="Speech to Text", compound="left")
 talk_btn.grid(row=0, column=10, padx=5)
+
 # ----------&&&&&&&&&&& End main menu ---------------------------------------------
 
 ######################   text editor   ############### ############################
