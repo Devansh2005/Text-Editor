@@ -22,6 +22,10 @@ You can start your open-source from this Text-Editor.
 - Text to speech (Beta).
 - Speech to Text
 
+# Editor's Interface Screenshot
+
+![Screenshot](screenshot.png)
+
 =======================================================================
 
 ## 📌 Opensource Programs
