@@ -1,17 +1,34 @@
+# Text Editor/Notepad
 Author: Devansh Tayal
 
 Github: https://github.com/Devansh2005
 
-Title: Text-Editor/Notepad
 
 =========================================================================
 
 # DESCRIPTION
 
-It is a tkinter, Python project (A simple Text Editor) open for contribution and beginner friendly.
-You can start your open-source from this Text-Editor.
+It is a tkinter, Python project (a simple text editor) open for contribution and beginner friendly.
+You can start your open-source project from this Text-Editor.
 
-=======================================================================
+=========================================================================
+
+# Installation
+
+This project requires that you have Python installed. Download it [here](https://www.python.org/). 
+
+It also requires the following Python packages, which can be installed via `pip`:
+```
+tkinter==8.6
+gtts ==2.2.1
+pyttsx3==2.90
+SpeechRecognition==3.8.1
+PyAudio==0.2.11
+```
+Then run it by double clicking on `dpad.py`!
+
+=========================================================================
+
 
 # Features !
 
