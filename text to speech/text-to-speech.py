@@ -7,7 +7,11 @@ Email- garima0224.be20@chitkara.edu.in]
 from tkinter import *
 from gtts import gTTS 
  
-import os 
+import os
+
+
+
+
 root = Tk() 
 
 frame1 = Frame(root, bg = "LightBlue1",  height = "150") 
